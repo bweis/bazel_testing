@@ -1,0 +1,25 @@
+{
+  "scripts": {
+    "preinstall": "npx only-allow pnpm"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/node": "18.11.9",
+    "tsconfig-to-swcconfig": "2.4.0",
+    "typescript": "5.5.4"
+  },
+  "dependencies": {
+    "@bazel_testing/first": "workspace:*",
+    "@bazel_testing/one": "workspace:*",
+    "@bazel_testing/shared": "workspace:*",
+    "@bazel_testing/two": "workspace:*",
+    "cowsay": "1.5.0",
+    "inspirational-quotes": "2.0.1",
+    "star-wars-quotes": "1.0.2",
+    "trek-quotes": "1.1.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": []
+  }
+}

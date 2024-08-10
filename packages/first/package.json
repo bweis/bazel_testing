@@ -1,0 +1,4 @@
+{
+  "name": "@bazel_testing/first",
+  "main": "src/main.js"
+}

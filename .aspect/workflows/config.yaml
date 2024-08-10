@@ -1,0 +1,5 @@
+tasks:
+    - format:
+          soft_fail: true
+    - lint:
+        failure_strategy: 'hold_the_line'

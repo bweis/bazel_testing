@@ -1,0 +1,10 @@
+# files or directories Bazel should not read
+# NB: this does NOT follow .gitignore semantics, see
+# https://github.com/bazelbuild/bazel/issues/7093
+node_modules
+apps/alpha/node_modules
+apps/beta/node_modules
+packages/one/node_modules
+packages/two/node_modules
+packages/shared/node_modules
+packages/first/node_modules

@@ -1,0 +1,36 @@
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@npm//:tsconfig-to-swcconfig/package_json.bzl", tsconfig_to_swcconfig = "bin")
+load("@aspect_bazel_lib//lib:jq.bzl", "jq")
+
+# link all dependencies from root package.json
+npm_link_all_packages(name = "node_modules")
+
+ts_config(
+    name = "tsconfig",
+    src = "tsconfig.json",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//:node_modules/@tsconfig/node22",
+        "//:node_modules/@tsconfig/strictest",
+    ],
+)
+
+tsconfig_to_swcconfig.t2s(
+    name = "write_swcrc",
+    srcs = ["tsconfig.json"],
+    stdout = ".swcrc",
+    visibility = ["//:__subpackages__"],
+)
+
+alias(
+    name = "format",
+    actual = "//tools/format",
+)
+
+exports_files(
+    [
+        ".shellcheckrc",
+    ],
+    visibility = ["//:__subpackages__"],
+)
